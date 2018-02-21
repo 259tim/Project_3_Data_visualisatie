@@ -19,7 +19,7 @@ namespace Project3Datavisualisatie.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -61,12 +61,14 @@ namespace Project3Datavisualisatie.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;Gemeenten&quot;;&quot;Bevolking totaal|1999&quot;;&quot;Bevolking totaal|2000&quot;;&quot;Bevolking totaal|2001&quot;;&quot;Bevolking totaal|2002&quot;;&quot;Bevolking totaal|2003&quot;;&quot;Bevolking totaal|2004&quot;;&quot;Bevolking totaal|2005&quot;;&quot;Bevolking totaal|2006&quot;;&quot;Bevolking totaal|2007&quot;;&quot;Bevolking totaal|2008&quot;;&quot;Bevolking totaal|2009&quot;;&quot;Bevolking totaal|2010&quot;;&quot;Bevolking totaal|2011&quot;;&quot;Bevolking totaal|2012&quot;;&quot;Bevolking totaal|2013&quot;;&quot;Bevolking totaal|2014&quot;;&quot;Bevolking totaal|2015&quot;;&quot;Bevolking totaal|2016&quot;;&quot;Bevolking totaal|2017&quot;
-        ///&quot;Aa en Hunze&quot;;24751;24824;25208;25552;25305 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;Provincies&quot;;&quot;Bevolking totaal|2005&quot;;&quot;Bevolking totaal|2006&quot;;&quot;Bevolking totaal|2007&quot;;&quot;Bevolking totaal|2008&quot;;&quot;Bevolking totaal|2009&quot;;&quot;Bevolking totaal|2010&quot;;&quot;Bevolking totaal|2011&quot;;&quot;Bevolking totaal|2012&quot;;&quot;Bevolking totaal|2013&quot;;&quot;Bevolking totaal|2014&quot;;&quot;Bevolking totaal|2015&quot;;&quot;Bevolking totaal|2016&quot;
+        ///&quot;Groningen (Pr)&quot;;575072;574042;573614;573459;574092;576668;579036;580875;581705;582728;583942;583721
+        ///&quot;Friesland&quot;;642977;642230;642209;643189;644811;646305;647282;647214;646862;646317;646257;646040
+        ///&quot;Drenthe&quot;;4 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string bevolking {
+        internal static string Bevolking {
             get {
-                return ResourceManager.GetString("bevolking", resourceCulture);
+                return ResourceManager.GetString("Bevolking", resourceCulture);
             }
         }
         
@@ -81,15 +83,14 @@ namespace Project3Datavisualisatie.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &quot;Gemeenten&quot;;&quot;Misdrijven totaal|2005&quot;;&quot;Misdrijven totaal|2006&quot;;&quot;Misdrijven totaal|2007&quot;;&quot;Misdrijven totaal|2008&quot;;&quot;Misdrijven totaal|2009&quot;;&quot;Misdrijven totaal|2010&quot;;&quot;Misdrijven totaal|2011&quot;;&quot;Misdrijven totaal|2012&quot;;&quot;Misdrijven totaal|2013&quot;;&quot;Misdrijven totaal|2014&quot;;&quot;Misdrijven totaal|2015&quot;;&quot;Misdrijven totaal|2016&quot;
-        ///&quot;Aa en Hunze&quot;;810;890;850;895;800;805;945;940;785;680;645;615
-        ///&quot;Aalburg&quot;;500;450;490;445;440;470;490;500;435;425;385;335
-        ///&quot;Aalsmeer&quot;;1440;1405;1485;1410;1355;1405;1480;1220;1280;1210;1105;1195
-        ///&quot;Aalt [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &quot;Provincies&quot;;&quot;Misdrijven totaal|2005&quot;;&quot;Misdrijven totaal|2006&quot;;&quot;Misdrijven totaal|2007&quot;;&quot;Misdrijven totaal|2008&quot;;&quot;Misdrijven totaal|2009&quot;;&quot;Misdrijven totaal|2010&quot;;&quot;Misdrijven totaal|2011&quot;;&quot;Misdrijven totaal|2012&quot;;&quot;Misdrijven totaal|2013&quot;;&quot;Misdrijven totaal|2014&quot;;&quot;Misdrijven totaal|2015&quot;;&quot;Misdrijven totaal|2016&quot;
+        ///&quot;Groningen (Pr)&quot;;40605;41085;40320;39810;41020;38320;37195;35885;34460;30725;30100;29485
+        ///&quot;Friesland&quot;;33705;32410;33725;33300;31375;31795;31945;29905;28760;27620;26595;24545
+        ///&quot;Drenthe&quot;;27760;27955;2 [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string misdrijven {
+        internal static string Misdrijven {
             get {
-                return ResourceManager.GetString("misdrijven", resourceCulture);
+                return ResourceManager.GetString("Misdrijven", resourceCulture);
             }
         }
     }

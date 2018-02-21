@@ -40,6 +40,8 @@ namespace Project3Datavisualisatie
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.currentYear = new System.Windows.Forms.TextBox();
+            this.trackBar = new System.Windows.Forms.TrackBar();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -48,14 +50,12 @@ namespace Project3Datavisualisatie
             this.button3 = new System.Windows.Forms.Button();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.trackBar = new System.Windows.Forms.TrackBar();
-            this.currentYear = new System.Windows.Forms.TextBox();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // materialTabControl1
@@ -85,19 +85,38 @@ namespace Project3Datavisualisatie
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // currentYear
+            // 
+            this.currentYear.Location = new System.Drawing.Point(28, 651);
+            this.currentYear.Name = "currentYear";
+            this.currentYear.Size = new System.Drawing.Size(100, 20);
+            this.currentYear.TabIndex = 3;
+            this.currentYear.Text = "2005";
+            // 
+            // trackBar
+            // 
+            this.trackBar.Location = new System.Drawing.Point(28, 600);
+            this.trackBar.Maximum = 2016;
+            this.trackBar.Minimum = 2005;
+            this.trackBar.Name = "trackBar";
+            this.trackBar.Size = new System.Drawing.Size(239, 45);
+            this.trackBar.TabIndex = 2;
+            this.trackBar.Value = 2005;
+            this.trackBar.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
             // chart1
             // 
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(3, 108);
+            this.chart1.Location = new System.Drawing.Point(3, 49);
             this.chart1.Name = "chart1";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Criminaliteit";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(563, 210);
+            this.chart1.Size = new System.Drawing.Size(584, 545);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
             // 
@@ -168,25 +187,6 @@ namespace Project3Datavisualisatie
             this.notifyIcon.Visible = true;
             this.notifyIcon.Click += new System.EventHandler(this.notifyIcon_Click);
             // 
-            // trackBar
-            // 
-            this.trackBar.Location = new System.Drawing.Point(39, 324);
-            this.trackBar.Maximum = 2016;
-            this.trackBar.Minimum = 2005;
-            this.trackBar.Name = "trackBar";
-            this.trackBar.Size = new System.Drawing.Size(239, 45);
-            this.trackBar.TabIndex = 2;
-            this.trackBar.Value = 2005;
-            this.trackBar.Scroll += new System.EventHandler(this.trackBar1_Scroll);
-            // 
-            // currentYear
-            // 
-            this.currentYear.Location = new System.Drawing.Point(39, 376);
-            this.currentYear.Name = "currentYear";
-            this.currentYear.Size = new System.Drawing.Size(100, 20);
-            this.currentYear.TabIndex = 3;
-            this.currentYear.Text = "2005";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,10 +198,10 @@ namespace Project3Datavisualisatie
             this.materialTabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar)).EndInit();
             this.ResumeLayout(false);
 
         }

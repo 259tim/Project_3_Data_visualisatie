@@ -20,18 +20,7 @@ namespace Project3Datavisualisatie
         public struct ProvinceRecord
         {
             public string province;
-            public float year2005;
-            public float year2006;
-            public float year2007;
-            public float year2008;
-            public float year2009;
-            public float year2010;
-            public float year2011;
-            public float year2012;
-            public float year2013;
-            public float year2014;
-            public float year2015;
-            public float year2016;
+            public float selectedYear;
         }
         private bool Slided;
         public Form1()
@@ -43,7 +32,7 @@ namespace Project3Datavisualisatie
             Toggle();
         }
 
-        public void getChartInf(float year)
+        public void getChartInf(int year)
         {
             Dictionary<string, ProvinceRecord> province = new Dictionary<string, ProvinceRecord>();
             //mischien nog path via resources fixen
@@ -57,20 +46,10 @@ namespace Project3Datavisualisatie
                     {
                         break;
                     }
+                    int yearToPart = year - 2004;
                     ProvinceRecord r;
                     r.province = parts[0];
-                    float.TryParse(parts[1], out r.year2005);
-                    float.TryParse(parts[2], out r.year2006);
-                    float.TryParse(parts[3], out r.year2007);
-                    float.TryParse(parts[4], out r.year2008);
-                    float.TryParse(parts[5], out r.year2009);
-                    float.TryParse(parts[6], out r.year2010);
-                    float.TryParse(parts[7], out r.year2011);
-                    float.TryParse(parts[8], out r.year2012);
-                    float.TryParse(parts[9], out r.year2013);
-                    float.TryParse(parts[10], out r.year2014);
-                    float.TryParse(parts[11], out r.year2015);
-                    float.TryParse(parts[12], out r.year2016);
+                    float.TryParse(parts[yearToPart], out r.selectedYear);
                     province.Add(r.province, r);
                 }
                 ProvinceRecord groningen = province["Groningen (Pr)"];
@@ -86,71 +65,20 @@ namespace Project3Datavisualisatie
                 ProvinceRecord noordbrabant = province["Noord-Brabant"];
                 ProvinceRecord limburg = province["Limburg"];
 
-
-                foreach (ProvinceRecord r in province.Values)
-                {
-                 
-                }
-
                 chart1.Series[0].Points.Clear();
 
+                chart1.Series["Criminaliteit"].Points.AddXY("Gro", groningen.selectedYear);
+                chart1.Series["Criminaliteit"].Points.AddXY("Fri", friesland.selectedYear);
+                chart1.Series["Criminaliteit"].Points.AddXY("Dre", drenthe.selectedYear);
+                chart1.Series["Criminaliteit"].Points.AddXY("Over", overijssel.selectedYear);
+                chart1.Series["Criminaliteit"].Points.AddXY("Flev", flevoland.selectedYear);
+                chart1.Series["Criminaliteit"].Points.AddXY("Geld", gelderland.selectedYear);
+                chart1.Series["Criminaliteit"].Points.AddXY("Utre", utrecht.selectedYear);
+                chart1.Series["Criminaliteit"].Points.AddXY("Noord", noordholland.selectedYear);
+                chart1.Series["Criminaliteit"].Points.AddXY("Zeela", zuidholland.selectedYear);
+                chart1.Series["Criminaliteit"].Points.AddXY("Noord", noordbrabant.selectedYear);
+                chart1.Series["Criminaliteit"].Points.AddXY("Limbu", limburg.selectedYear);
 
-                if (year == 2005)
-                {
-                    chart1.Series["Criminaliteit"].Points.AddXY("Gro", groningen.year2014);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Fri", friesland.year2014);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Dre", drenthe.year2014);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Over", overijssel.year2014);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Flev", flevoland.year2014);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Geld", gelderland.year2014);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Utre", utrecht.year2014);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Noord", noordholland.year2014);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Zeela", zuidholland.year2014);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Noord", noordbrabant.year2014);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Limbu", limburg.year2014);
-                }
-                if (year == 2006)
-                {
-                    chart1.Series["Criminaliteit"].Points.AddXY("Gro", groningen.year2015);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Fri", friesland.year2015);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Dre", drenthe.year2015);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Over", overijssel.year2015);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Flev", flevoland.year2015);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Geld", gelderland.year2015);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Utre", utrecht.year2015);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Noord", noordholland.year2015);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Zeela", zuidholland.year2015);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Noord", noordbrabant.year2015);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Limbu", limburg.year2015);
-                }
-                if (year == 2007)
-                {
-                    chart1.Series["Criminaliteit"].Points.AddXY("Gro", groningen.year2016);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Fri", friesland.year2016);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Dre", drenthe.year2016);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Over", overijssel.year2016);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Flev", flevoland.year2016);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Geld", gelderland.year2016);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Utre", utrecht.year2016);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Noord", noordholland.year2016);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Zeela", zuidholland.year2016);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Noord", noordbrabant.year2016);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Limbu", limburg.year2016);
-                }
-                if (year == 2008)
-                {
-                    chart1.Series["Criminaliteit"].Points.AddXY("Gro", groningen.year2013);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Fri", friesland.year2013);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Dre", drenthe.year2013);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Over", overijssel.year2013);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Flev", flevoland.year2013);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Geld", gelderland.year2013);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Utre", utrecht.year2013);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Noord", noordholland.year2013);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Zeela", zuidholland.year2013);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Noord", noordbrabant.year2013);
-                    chart1.Series["Criminaliteit"].Points.AddXY("Limbu", limburg.year2013);
-                }
             }
         }
 
@@ -159,7 +87,7 @@ namespace Project3Datavisualisatie
 
 
         }
-   
+
         //Form slide toggle
         public void Toggle()
         {
@@ -211,7 +139,7 @@ namespace Project3Datavisualisatie
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
-        
+
         //Toggle slide on clicking the icon
         private void notifyIcon_Click(object sender, EventArgs e)
         {
@@ -220,7 +148,7 @@ namespace Project3Datavisualisatie
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            float year = trackBar.Value;
+            int year = trackBar.Value;
             getChartInf(year);
             currentYear.Text = year.ToString();
         }

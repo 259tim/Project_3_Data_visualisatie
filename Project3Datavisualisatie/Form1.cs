@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// hello it's me
 namespace Project3Datavisualisatie
 {
     public partial class Form1 : MaterialForm
@@ -151,6 +152,11 @@ namespace Project3Datavisualisatie
             int year = trackBar.Value;
             getChartInf(year);
             currentYear.Text = year.ToString();
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

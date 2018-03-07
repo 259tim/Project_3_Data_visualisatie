@@ -94,7 +94,7 @@ namespace Project3Datavisualisatie
         {
             if (Slided)
             {
-                SlideOut(this, 435);
+                SlideOut(this, 835);
                 Slided = false;
             }
             else
@@ -121,13 +121,13 @@ namespace Project3Datavisualisatie
         {
             Slided = true;
             Rectangle workingArea = Screen.GetWorkingArea(this);
-            while (move < 435)
+            while (move < 835)
             {
                 await Task.Delay(10);
                 int a = move += 29;
                 Location = new Point(workingArea.Right - move, workingArea.Top);
             }
-            move = 435;
+            move = 835;
         }
 
         //Hotkey for sliding
@@ -155,6 +155,16 @@ namespace Project3Datavisualisatie
         }
 
         private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
         {
 
         }

@@ -34,68 +34,95 @@ namespace Project3Datavisualisatie
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.bottom = new System.Windows.Forms.TextBox();
-            this.trackBar = new System.Windows.Forms.TrackBar();
+            this.TabCriminaliteit = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.currentYear = new System.Windows.Forms.TextBox();
+            this.trackBar = new System.Windows.Forms.TrackBar();
+            this.TabEconomie = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.TabEnergie = new System.Windows.Forms.TabPage();
             this.button3 = new System.Windows.Forms.Button();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialTabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar)).BeginInit();
+            this.TabCriminaliteit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar)).BeginInit();
+            this.TabEconomie.SuspendLayout();
+            this.TabEnergie.SuspendLayout();
             this.SuspendLayout();
             // 
             // materialTabControl1
             // 
-            this.materialTabControl1.Controls.Add(this.tabPage1);
-            this.materialTabControl1.Controls.Add(this.tabPage2);
-            this.materialTabControl1.Controls.Add(this.tabPage3);
+            this.materialTabControl1.Controls.Add(this.TabCriminaliteit);
+            this.materialTabControl1.Controls.Add(this.TabEconomie);
+            this.materialTabControl1.Controls.Add(this.TabEnergie);
             this.materialTabControl1.Depth = 0;
-            this.materialTabControl1.Location = new System.Drawing.Point(-2, 52);
+            this.materialTabControl1.Location = new System.Drawing.Point(-2, 61);
             this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl1.Name = "materialTabControl1";
             this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(1008, 1050);
+            this.materialTabControl1.Size = new System.Drawing.Size(1689, 731);
             this.materialTabControl1.TabIndex = 0;
             // 
-            // tabPage1
+            // TabCriminaliteit
             // 
-            this.tabPage1.Controls.Add(this.textBox1);
-            this.tabPage1.Controls.Add(this.bottom);
-            this.tabPage1.Controls.Add(this.trackBar);
-            this.tabPage1.Controls.Add(this.chart1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1000, 1024);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.TabCriminaliteit.Controls.Add(this.button1);
+            this.TabCriminaliteit.Controls.Add(this.chart1);
+            this.TabCriminaliteit.Controls.Add(this.currentYear);
+            this.TabCriminaliteit.Controls.Add(this.trackBar);
+            this.TabCriminaliteit.Location = new System.Drawing.Point(4, 22);
+            this.TabCriminaliteit.Name = "TabCriminaliteit";
+            this.TabCriminaliteit.Padding = new System.Windows.Forms.Padding(3);
+            this.TabCriminaliteit.Size = new System.Drawing.Size(1681, 705);
+            this.TabCriminaliteit.TabIndex = 0;
+            this.TabCriminaliteit.Text = "Criminaliteit";
+            this.TabCriminaliteit.UseVisualStyleBackColor = true;
+            this.TabCriminaliteit.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-            // bottom
+            // button1
             // 
-            this.bottom.Location = new System.Drawing.Point(10, 757);
-            this.bottom.Name = "bottom";
-            this.bottom.Size = new System.Drawing.Size(100, 20);
-            this.bottom.TabIndex = 3;
-            this.bottom.Text = "2005";
+            this.button1.Location = new System.Drawing.Point(403, 60);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // chart1
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(0, 6);
+            this.chart1.Name = "chart1";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Criminaliteit";
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(509, 437);
+            this.chart1.TabIndex = 1;
+            this.chart1.Text = "chart1";
+            this.chart1.Click += new System.EventHandler(this.chart1_Click);
+            // 
+            // currentYear
+            // 
+            this.currentYear.Location = new System.Drawing.Point(311, 449);
+            this.currentYear.Name = "currentYear";
+            this.currentYear.Size = new System.Drawing.Size(50, 20);
+            this.currentYear.TabIndex = 3;
+            this.currentYear.Text = "2005";
             // 
             // trackBar
             // 
-            this.trackBar.Location = new System.Drawing.Point(28, 600);
+            this.trackBar.Location = new System.Drawing.Point(57, 449);
             this.trackBar.Maximum = 2016;
             this.trackBar.Minimum = 2005;
             this.trackBar.Name = "trackBar";
@@ -104,36 +131,16 @@ namespace Project3Datavisualisatie
             this.trackBar.Value = 2005;
             this.trackBar.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
-            // chart1
+            // TabEconomie
             // 
-            chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(610, 6);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Criminaliteit";
-            series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
-            series1.ShadowColor = System.Drawing.Color.Black;
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(382, 355);
-            this.chart1.TabIndex = 1;
-            this.chart1.Text = "chart1";
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1000, 714);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.TabEconomie.Controls.Add(this.button2);
+            this.TabEconomie.Location = new System.Drawing.Point(4, 22);
+            this.TabEconomie.Name = "TabEconomie";
+            this.TabEconomie.Padding = new System.Windows.Forms.Padding(3);
+            this.TabEconomie.Size = new System.Drawing.Size(1681, 705);
+            this.TabEconomie.TabIndex = 1;
+            this.TabEconomie.Text = "Lokale Economie";
+            this.TabEconomie.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -144,16 +151,17 @@ namespace Project3Datavisualisatie
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // tabPage3
+            // TabEnergie
             // 
-            this.tabPage3.Controls.Add(this.button3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1000, 714);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.TabEnergie.Controls.Add(this.button3);
+            this.TabEnergie.Location = new System.Drawing.Point(4, 22);
+            this.TabEnergie.Name = "TabEnergie";
+            this.TabEnergie.Padding = new System.Windows.Forms.Padding(3);
+            this.TabEnergie.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.TabEnergie.Size = new System.Drawing.Size(1681, 705);
+            this.TabEnergie.TabIndex = 2;
+            this.TabEnergie.Text = "Groene energie";
+            this.TabEnergie.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -168,10 +176,10 @@ namespace Project3Datavisualisatie
             // 
             this.materialTabSelector1.BaseTabControl = this.materialTabControl1;
             this.materialTabSelector1.Depth = 0;
-            this.materialTabSelector1.Location = new System.Drawing.Point(2, 25);
+            this.materialTabSelector1.Location = new System.Drawing.Point(-2, 24);
             this.materialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector1.Name = "materialTabSelector1";
-            this.materialTabSelector1.Size = new System.Drawing.Size(1004, 48);
+            this.materialTabSelector1.Size = new System.Drawing.Size(1344, 31);
             this.materialTabSelector1.TabIndex = 1;
             this.materialTabSelector1.Text = "materialTabSelector1";
             // 
@@ -182,29 +190,22 @@ namespace Project3Datavisualisatie
             this.notifyIcon.Visible = true;
             this.notifyIcon.Click += new System.EventHandler(this.notifyIcon_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(10, 958);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
-            this.textBox1.Text = "bottom";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 1100);
+            this.ClientSize = new System.Drawing.Size(1687, 792);
             this.Controls.Add(this.materialTabSelector1);
             this.Controls.Add(this.materialTabControl1);
             this.Name = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load_1);
             this.materialTabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar)).EndInit();
+            this.TabCriminaliteit.ResumeLayout(false);
+            this.TabCriminaliteit.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar)).EndInit();
+            this.TabEconomie.ResumeLayout(false);
+            this.TabEnergie.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -215,29 +216,29 @@ namespace Project3Datavisualisatie
         {
             //custom form properties
             Rectangle workingArea = Screen.GetWorkingArea(this);
-            Location = new Point(workingArea.Right - 1000, workingArea.Top);
+            Location = new Point(workingArea.Right - 435, workingArea.Top);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            Width = 1000;
+            Width = 835;
             Height = Screen.PrimaryScreen.WorkingArea.Height;
             //materialskin
             var skinManager = MaterialSkinManager.Instance;
             skinManager.AddFormToManage(this);
             skinManager.Theme = MaterialSkinManager.Themes.DARK; //LightBlue200
-            skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.Orange800, Primary.BlueGrey500, Accent.Orange700, TextShade.WHITE);
+            skinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.Blue800, Primary.BlueGrey500, Accent.Blue700, TextShade.WHITE);
         }
 
         private MaterialSkin.Controls.MaterialTabControl materialTabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage TabCriminaliteit;
+        private System.Windows.Forms.TabPage TabEconomie;
+        private System.Windows.Forms.TabPage TabEnergie;
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
         private NotifyIcon notifyIcon;
+        private Button button1;
         private Button button2;
         private Button button3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private TrackBar trackBar;
-        private TextBox bottom;
-        private TextBox textBox1;
+        private TextBox currentYear;
     }
 }
 

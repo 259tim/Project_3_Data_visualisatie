@@ -73,6 +73,14 @@ namespace Project3Datavisualisatie
                 chart1.Series["Criminaliteit"].Points.AddXY("Gro", groningen.selectedYear);
                 chart1.Series["Criminaliteit"].Points.AddXY("Fri", friesland.selectedYear);
                 chart1.Series["Criminaliteit"].Points.AddXY("Dre", drenthe.selectedYear);
+                chart1.Series["Criminaliteit"].Points.AddXY("Over", overijssel.selectedYear);
+                chart1.Series["Criminaliteit"].Points.AddXY("Flev", flevoland.selectedYear);
+                chart1.Series["Criminaliteit"].Points.AddXY("Geld", gelderland.selectedYear);
+                chart1.Series["Criminaliteit"].Points.AddXY("Utre", utrecht.selectedYear);
+                chart1.Series["Criminaliteit"].Points.AddXY("Noord", noordholland.selectedYear);
+                chart1.Series["Criminaliteit"].Points.AddXY("Zeela", zuidholland.selectedYear);
+                chart1.Series["Criminaliteit"].Points.AddXY("Noord", noordbrabant.selectedYear);
+                chart1.Series["Criminaliteit"].Points.AddXY("Limbu", limburg.selectedYear);
 
             }
         }
@@ -88,7 +96,7 @@ namespace Project3Datavisualisatie
         {
             if (Slided)
             {
-                SlideOut(this, 435);
+                SlideOut(this, 835);
                 Slided = false;
             }
             else
@@ -115,13 +123,13 @@ namespace Project3Datavisualisatie
         {
             Slided = true;
             Rectangle workingArea = Screen.GetWorkingArea(this);
-            while (move < 1000)
+            while (move < 835)
             {
                 await Task.Delay(10);
                 int a = move += 29;
                 Location = new Point(workingArea.Right - move, workingArea.Top);
             }
-            move = 1000;
+            move = 835;
         }
 
         //Hotkey for sliding
@@ -145,7 +153,22 @@ namespace Project3Datavisualisatie
         {
             int year = trackBar.Value;
             getChartInf(year);
-            bottom.Text = year.ToString();
+            currentYear.Text = year.ToString();
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

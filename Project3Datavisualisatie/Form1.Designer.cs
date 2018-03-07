@@ -40,16 +40,16 @@ namespace Project3Datavisualisatie
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.currentYear = new System.Windows.Forms.TextBox();
+            this.bottom = new System.Windows.Forms.TextBox();
             this.trackBar = new System.Windows.Forms.TrackBar();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button2 = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button3 = new System.Windows.Forms.Button();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.materialTabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar)).BeginInit();
@@ -64,34 +64,34 @@ namespace Project3Datavisualisatie
             this.materialTabControl1.Controls.Add(this.tabPage2);
             this.materialTabControl1.Controls.Add(this.tabPage3);
             this.materialTabControl1.Depth = 0;
-            this.materialTabControl1.Location = new System.Drawing.Point(-2, 49);
+            this.materialTabControl1.Location = new System.Drawing.Point(-2, 52);
             this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl1.Name = "materialTabControl1";
             this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(610, 743);
+            this.materialTabControl1.Size = new System.Drawing.Size(1008, 1050);
             this.materialTabControl1.TabIndex = 0;
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.currentYear);
+            this.tabPage1.Controls.Add(this.textBox1);
+            this.tabPage1.Controls.Add(this.bottom);
             this.tabPage1.Controls.Add(this.trackBar);
             this.tabPage1.Controls.Add(this.chart1);
-            this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(602, 717);
+            this.tabPage1.Size = new System.Drawing.Size(1000, 1024);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // currentYear
+            // bottom
             // 
-            this.currentYear.Location = new System.Drawing.Point(28, 651);
-            this.currentYear.Name = "currentYear";
-            this.currentYear.Size = new System.Drawing.Size(100, 20);
-            this.currentYear.TabIndex = 3;
-            this.currentYear.Text = "2005";
+            this.bottom.Location = new System.Drawing.Point(10, 757);
+            this.bottom.Name = "bottom";
+            this.bottom.Size = new System.Drawing.Size(100, 20);
+            this.bottom.TabIndex = 3;
+            this.bottom.Text = "2005";
             // 
             // trackBar
             // 
@@ -106,29 +106,23 @@ namespace Project3Datavisualisatie
             // 
             // chart1
             // 
+            chartArea1.AlignmentOrientation = ((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations)((System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Vertical | System.Windows.Forms.DataVisualization.Charting.AreaAlignmentOrientations.Horizontal)));
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(3, 49);
+            this.chart1.Location = new System.Drawing.Point(610, 6);
             this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Criminaliteit";
+            series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Grayscale;
+            series1.ShadowColor = System.Drawing.Color.Black;
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(584, 545);
+            this.chart1.Size = new System.Drawing.Size(382, 355);
             this.chart1.TabIndex = 1;
             this.chart1.Text = "chart1";
-            this.chart1.Click += new System.EventHandler(this.chart1_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(19, 20);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
@@ -136,7 +130,7 @@ namespace Project3Datavisualisatie
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(602, 717);
+            this.tabPage2.Size = new System.Drawing.Size(1000, 714);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -156,7 +150,7 @@ namespace Project3Datavisualisatie
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(602, 717);
+            this.tabPage3.Size = new System.Drawing.Size(1000, 714);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -174,10 +168,10 @@ namespace Project3Datavisualisatie
             // 
             this.materialTabSelector1.BaseTabControl = this.materialTabControl1;
             this.materialTabSelector1.Depth = 0;
-            this.materialTabSelector1.Location = new System.Drawing.Point(2, 0);
+            this.materialTabSelector1.Location = new System.Drawing.Point(2, 25);
             this.materialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector1.Name = "materialTabSelector1";
-            this.materialTabSelector1.Size = new System.Drawing.Size(606, 48);
+            this.materialTabSelector1.Size = new System.Drawing.Size(1004, 48);
             this.materialTabSelector1.TabIndex = 1;
             this.materialTabSelector1.Text = "materialTabSelector1";
             // 
@@ -188,11 +182,19 @@ namespace Project3Datavisualisatie
             this.notifyIcon.Visible = true;
             this.notifyIcon.Click += new System.EventHandler(this.notifyIcon_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(10, 958);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 4;
+            this.textBox1.Text = "bottom";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 769);
+            this.ClientSize = new System.Drawing.Size(1006, 1100);
             this.Controls.Add(this.materialTabSelector1);
             this.Controls.Add(this.materialTabControl1);
             this.Name = "Form1";
@@ -213,9 +215,9 @@ namespace Project3Datavisualisatie
         {
             //custom form properties
             Rectangle workingArea = Screen.GetWorkingArea(this);
-            Location = new Point(workingArea.Right - 435, workingArea.Top);
+            Location = new Point(workingArea.Right - 1000, workingArea.Top);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            Width = 435;
+            Width = 1000;
             Height = Screen.PrimaryScreen.WorkingArea.Height;
             //materialskin
             var skinManager = MaterialSkinManager.Instance;
@@ -230,12 +232,12 @@ namespace Project3Datavisualisatie
         private System.Windows.Forms.TabPage tabPage3;
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
         private NotifyIcon notifyIcon;
-        private Button button1;
         private Button button2;
         private Button button3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private TrackBar trackBar;
-        private TextBox currentYear;
+        private TextBox bottom;
+        private TextBox textBox1;
     }
 }
 

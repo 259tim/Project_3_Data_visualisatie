@@ -1,17 +1,9 @@
 ﻿using MaterialSkin.Controls;
-using Microsoft.VisualBasic.FileIO;
 using MySql.Data.MySqlClient;
-using Project3Datavisualisatie.Properties;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
@@ -24,7 +16,7 @@ namespace Project3Datavisualisatie
     public partial class Form1 : MaterialForm
     {
         private bool Slided;
-        private string selectedCrimeChartInfoType;
+        private string selectedCrimeChartInfoType = "ratio";
 
         public Form1()
         {
@@ -64,6 +56,8 @@ namespace Project3Datavisualisatie
             chart1.Series[0].Points.Clear();
             //TODO: needs to be done in the desinger
             chart1.ChartAreas[0].AxisX.Interval = 1;
+            chart1.ChartAreas[0].AxisX.LabelStyle.ForeColor = Color.White;
+            chart1.ChartAreas[0].AxisY.LabelStyle.ForeColor = Color.White;
 
             //Loop through the data to calculate the crime ratio and show it in the crimechart
             foreach (DataRow row in misdrijf.Rows)
@@ -161,19 +155,22 @@ namespace Project3Datavisualisatie
         //Set crimechart type to populution increase
         private void popIncrease_CheckedChanged(object sender, EventArgs e)
         {
-            selectedCrimeChartInfoType = "pop"; 
+            selectedCrimeChartInfoType = "pop";
+            chartTypeExplain.Text = "Popululation change since 2005";
         }
 
         //Set crimechart type to crime increase
         private void crimeIncrease_CheckedChanged(object sender, EventArgs e)
         {
             selectedCrimeChartInfoType = "crime";
+            chartTypeExplain.Text = "Crime change since 2005";
         }
 
         //Set crimechart type to ratio
         private void ratio_CheckedChanged(object sender, EventArgs e)
         {
             selectedCrimeChartInfoType = "ratio";
+            chartTypeExplain.Text = "pop/crime ratio. The change of population total and crime total since 2005.";
         }
     }
 }

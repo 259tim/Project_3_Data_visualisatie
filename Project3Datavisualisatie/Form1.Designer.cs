@@ -52,6 +52,7 @@ namespace Project3Datavisualisatie
             this.popIncrease = new MaterialSkin.Controls.MaterialRadioButton();
             this.crimeIncrease = new MaterialSkin.Controls.MaterialRadioButton();
             this.ratio = new MaterialSkin.Controls.MaterialRadioButton();
+            this.chartTypeExplain = new System.Windows.Forms.TextBox();
             this.materialTabControl1.SuspendLayout();
             this.TabCriminaliteit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -70,11 +71,12 @@ namespace Project3Datavisualisatie
             this.materialTabControl1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabControl1.Name = "materialTabControl1";
             this.materialTabControl1.SelectedIndex = 0;
-            this.materialTabControl1.Size = new System.Drawing.Size(1689, 731);
+            this.materialTabControl1.Size = new System.Drawing.Size(1689, 923);
             this.materialTabControl1.TabIndex = 0;
             // 
             // TabCriminaliteit
             // 
+            this.TabCriminaliteit.Controls.Add(this.chartTypeExplain);
             this.TabCriminaliteit.Controls.Add(this.ratio);
             this.TabCriminaliteit.Controls.Add(this.crimeIncrease);
             this.TabCriminaliteit.Controls.Add(this.popIncrease);
@@ -84,30 +86,32 @@ namespace Project3Datavisualisatie
             this.TabCriminaliteit.Location = new System.Drawing.Point(4, 22);
             this.TabCriminaliteit.Name = "TabCriminaliteit";
             this.TabCriminaliteit.Padding = new System.Windows.Forms.Padding(3);
-            this.TabCriminaliteit.Size = new System.Drawing.Size(1681, 705);
+            this.TabCriminaliteit.Size = new System.Drawing.Size(1681, 897);
             this.TabCriminaliteit.TabIndex = 0;
             this.TabCriminaliteit.Text = "Criminaliteit";
             this.TabCriminaliteit.UseVisualStyleBackColor = true;
             // 
             // chart1
             // 
+            this.chart1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.chart1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
             chartArea3.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
             this.chart1.Legends.Add(legend3);
-            this.chart1.Location = new System.Drawing.Point(3, 6);
+            this.chart1.Location = new System.Drawing.Point(6, 57);
             this.chart1.Name = "chart1";
             series3.ChartArea = "ChartArea1";
             series3.Legend = "Legend1";
             series3.Name = "Criminaliteit";
             this.chart1.Series.Add(series3);
-            this.chart1.Size = new System.Drawing.Size(509, 574);
+            this.chart1.Size = new System.Drawing.Size(509, 689);
             this.chart1.TabIndex = 1;
-            this.chart1.Text = "v";
+            this.chart1.Text = "Criminaliteit chart";
             // 
             // currentYear
             // 
-            this.currentYear.Location = new System.Drawing.Point(290, 586);
+            this.currentYear.Location = new System.Drawing.Point(770, 31);
             this.currentYear.Name = "currentYear";
             this.currentYear.Size = new System.Drawing.Size(50, 20);
             this.currentYear.TabIndex = 3;
@@ -115,7 +119,7 @@ namespace Project3Datavisualisatie
             // 
             // trackBar
             // 
-            this.trackBar.Location = new System.Drawing.Point(10, 586);
+            this.trackBar.Location = new System.Drawing.Point(525, 31);
             this.trackBar.Maximum = 2016;
             this.trackBar.Minimum = 2006;
             this.trackBar.Name = "trackBar";
@@ -188,7 +192,7 @@ namespace Project3Datavisualisatie
             this.popIncrease.AutoSize = true;
             this.popIncrease.Depth = 0;
             this.popIncrease.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.popIncrease.Location = new System.Drawing.Point(584, 19);
+            this.popIncrease.Location = new System.Drawing.Point(525, 82);
             this.popIncrease.Margin = new System.Windows.Forms.Padding(0);
             this.popIncrease.MouseLocation = new System.Drawing.Point(-1, -1);
             this.popIncrease.MouseState = MaterialSkin.MouseState.HOVER;
@@ -206,7 +210,7 @@ namespace Project3Datavisualisatie
             this.crimeIncrease.AutoSize = true;
             this.crimeIncrease.Depth = 0;
             this.crimeIncrease.Font = new System.Drawing.Font("Roboto", 10F);
-            this.crimeIncrease.Location = new System.Drawing.Point(584, 53);
+            this.crimeIncrease.Location = new System.Drawing.Point(525, 116);
             this.crimeIncrease.Margin = new System.Windows.Forms.Padding(0);
             this.crimeIncrease.MouseLocation = new System.Drawing.Point(-1, -1);
             this.crimeIncrease.MouseState = MaterialSkin.MouseState.HOVER;
@@ -224,7 +228,7 @@ namespace Project3Datavisualisatie
             this.ratio.AutoSize = true;
             this.ratio.Depth = 0;
             this.ratio.Font = new System.Drawing.Font("Roboto", 10F);
-            this.ratio.Location = new System.Drawing.Point(584, 87);
+            this.ratio.Location = new System.Drawing.Point(525, 150);
             this.ratio.Margin = new System.Windows.Forms.Padding(0);
             this.ratio.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ratio.MouseState = MaterialSkin.MouseState.HOVER;
@@ -236,6 +240,19 @@ namespace Project3Datavisualisatie
             this.ratio.Text = "pop/crime ratio";
             this.ratio.UseVisualStyleBackColor = true;
             this.ratio.CheckedChanged += new System.EventHandler(this.ratio_CheckedChanged);
+            // 
+            // chartTypeExplain
+            // 
+            this.chartTypeExplain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.chartTypeExplain.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.chartTypeExplain.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chartTypeExplain.ForeColor = System.Drawing.Color.White;
+            this.chartTypeExplain.Location = new System.Drawing.Point(23, 30);
+            this.chartTypeExplain.Multiline = true;
+            this.chartTypeExplain.Name = "chartTypeExplain";
+            this.chartTypeExplain.Size = new System.Drawing.Size(492, 30);
+            this.chartTypeExplain.TabIndex = 7;
+            this.chartTypeExplain.Text = "pop/crime ratio. The change of population total and crime total since 2005.";
             // 
             // Form1
             // 
@@ -287,6 +304,7 @@ namespace Project3Datavisualisatie
         private MaterialSkin.Controls.MaterialRadioButton ratio;
         private MaterialSkin.Controls.MaterialRadioButton crimeIncrease;
         private MaterialSkin.Controls.MaterialRadioButton popIncrease;
+        private TextBox chartTypeExplain;
     }
 }
 

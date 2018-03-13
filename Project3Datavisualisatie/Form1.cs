@@ -1,10 +1,12 @@
 ﻿using MaterialSkin.Controls;
 using Microsoft.VisualBasic.FileIO;
+using MySql.Data.MySqlClient;
 using Project3Datavisualisatie.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -12,6 +14,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 // hello it's me
 //Test jaap
@@ -20,75 +23,75 @@ namespace Project3Datavisualisatie
 {
     public partial class Form1 : MaterialForm
     {
-        public struct ProvinceRecord
-        {
-            public string province;
-            public float selectedYear;
-        }
         private bool Slided;
+        private string selectedCrimeChartInfoType;
+
         public Form1()
         {
             InitializeComponent();
             customForm();
 
+            drawNewCrimeChart(2006);
+
             Slided = false;
             Toggle();
         }
-
-        public void getChartInf(int year)
+      
+        private void drawNewCrimeChart(int year)
         {
-            Dictionary<string, ProvinceRecord> province = new Dictionary<string, ProvinceRecord>();
-            //mischien nog path via resources fixen
-            using (TextFieldParser parser = new TextFieldParser(Path.GetDirectoryName(Application.ExecutablePath).Replace(@"bin\Debug", string.Empty) + "Resources/Bevolking.csv"))
+            //Database connection
+            SqlConnection connection;
+            string connectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["Project3Datavisualisatie.Properties.Settings.Database1ConnectionString"].ConnectionString;
+            connection = new SqlConnection(connectionString);
+
+            //Open connection to run dat query
+            connection.Open();
+
+            //Query to get the population total, crime total per year per province
+            string selectedPopYear = "b" + year;
+            string selectedCrimeYear = "m" + year;
+            SqlDataAdapter data = new SqlDataAdapter("(SELECT Province, " + selectedPopYear + ",b2005," + selectedCrimeYear + ",m2005 FROM Crime)", connection);
+
+            //Query is done, close connection
+            connection.Close();
+
+            //Store query result in datatable for later use
+            DataTable misdrijf = new DataTable();
+            data.Fill(misdrijf);
+
+            //Empty the crimechart
+            chart1.Series[0].Points.Clear();
+            //TODO: needs to be done in the desinger
+            chart1.ChartAreas[0].AxisX.Interval = 1;
+
+            //Loop through the data to calculate the crime ratio and show it in the crimechart
+            foreach (DataRow row in misdrijf.Rows)
             {
-                parser.Delimiters = new string[] { ";" };
-                while (true)
+                string provincie = row[0].ToString();
+                int popIncrease = Convert.ToInt32(row[1]) - Convert.ToInt32(row[2]);
+                int crimeIncrease = Convert.ToInt32(row[3]) - Convert.ToInt32(row[4]);
+                int crimeRatio = (popIncrease / crimeIncrease);
+
+                if (selectedCrimeChartInfoType == "pop")
                 {
-                    string[] parts = parser.ReadFields();
-                    if (parts == null)
-                    {
-                        break;
-                    }
-                    int yearToPart = year - 2004;
-                    ProvinceRecord r;
-                    r.province = parts[0];
-                    float.TryParse(parts[yearToPart], out r.selectedYear);
-                    province.Add(r.province, r);
+                    chart1.ChartAreas[0].AxisY.Maximum = 200000;
+                    chart1.ChartAreas[0].AxisY.Minimum = -25000;
+                    chart1.Series["Criminaliteit"].Points.AddXY(provincie, popIncrease);
                 }
-                ProvinceRecord groningen = province["Groningen (Pr)"];
-                ProvinceRecord friesland = province["Friesland"];
-                ProvinceRecord drenthe = province["Drenthe"];
-                ProvinceRecord overijssel = province["Overijssel"];
-                ProvinceRecord flevoland = province["Flevoland"];
-                ProvinceRecord gelderland = province["Gelderland"];
-                ProvinceRecord utrecht = province["Utrecht (Pr)"];
-                ProvinceRecord noordholland = province["Noord-Holland"];
-                ProvinceRecord zuidholland = province["Zuid-Holland"];
-                ProvinceRecord zeeland = province["Zeeland"];
-                ProvinceRecord noordbrabant = province["Noord-Brabant"];
-                ProvinceRecord limburg = province["Limburg"];
-
-                chart1.Series[0].Points.Clear();
-
-                chart1.Series["Criminaliteit"].Points.AddXY("Gro", groningen.selectedYear);
-                chart1.Series["Criminaliteit"].Points.AddXY("Fri", friesland.selectedYear);
-                chart1.Series["Criminaliteit"].Points.AddXY("Dre", drenthe.selectedYear);
-                chart1.Series["Criminaliteit"].Points.AddXY("Over", overijssel.selectedYear);
-                chart1.Series["Criminaliteit"].Points.AddXY("Flev", flevoland.selectedYear);
-                chart1.Series["Criminaliteit"].Points.AddXY("Geld", gelderland.selectedYear);
-                chart1.Series["Criminaliteit"].Points.AddXY("Utre", utrecht.selectedYear);
-                chart1.Series["Criminaliteit"].Points.AddXY("Noord", noordholland.selectedYear);
-                chart1.Series["Criminaliteit"].Points.AddXY("Zeela", zuidholland.selectedYear);
-                chart1.Series["Criminaliteit"].Points.AddXY("Noord", noordbrabant.selectedYear);
-                chart1.Series["Criminaliteit"].Points.AddXY("Limbu", limburg.selectedYear);
-
+                else if (selectedCrimeChartInfoType == "crime")
+                {
+                    chart1.ChartAreas[0].AxisY.Maximum = 5000;
+                    chart1.ChartAreas[0].AxisY.Minimum = -100000;
+                    chart1.Series["Criminaliteit"].Points.AddXY(provincie, crimeIncrease);
+                }
+                else if (selectedCrimeChartInfoType == "ratio")
+                {
+                    chart1.ChartAreas[0].AxisY.Maximum = 14;
+                    chart1.ChartAreas[0].AxisY.Minimum = -45;
+                    chart1.Series["Criminaliteit"].Points.AddXY(provincie, crimeRatio);
+                }
             }
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-
         }
 
         //Form slide toggle
@@ -152,23 +155,25 @@ namespace Project3Datavisualisatie
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             int year = trackBar.Value;
-            getChartInf(year);
+            drawNewCrimeChart(year);
             currentYear.Text = year.ToString();
         }
-
-        private void chart1_Click(object sender, EventArgs e)
+        //Set crimechart type to populution increase
+        private void popIncrease_CheckedChanged(object sender, EventArgs e)
         {
-
+            selectedCrimeChartInfoType = "pop"; 
         }
 
-        private void Form1_Load_1(object sender, EventArgs e)
+        //Set crimechart type to crime increase
+        private void crimeIncrease_CheckedChanged(object sender, EventArgs e)
         {
-
+            selectedCrimeChartInfoType = "crime";
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        //Set crimechart type to ratio
+        private void ratio_CheckedChanged(object sender, EventArgs e)
         {
-
+            selectedCrimeChartInfoType = "ratio";
         }
     }
 }

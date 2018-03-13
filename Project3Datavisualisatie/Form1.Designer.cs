@@ -34,13 +34,12 @@ namespace Project3Datavisualisatie
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.materialTabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.TabCriminaliteit = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.currentYear = new System.Windows.Forms.TextBox();
             this.trackBar = new System.Windows.Forms.TrackBar();
@@ -50,6 +49,9 @@ namespace Project3Datavisualisatie
             this.button3 = new System.Windows.Forms.Button();
             this.materialTabSelector1 = new MaterialSkin.Controls.MaterialTabSelector();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.popIncrease = new MaterialSkin.Controls.MaterialRadioButton();
+            this.crimeIncrease = new MaterialSkin.Controls.MaterialRadioButton();
+            this.ratio = new MaterialSkin.Controls.MaterialRadioButton();
             this.materialTabControl1.SuspendLayout();
             this.TabCriminaliteit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
@@ -73,7 +75,9 @@ namespace Project3Datavisualisatie
             // 
             // TabCriminaliteit
             // 
-            this.TabCriminaliteit.Controls.Add(this.button1);
+            this.TabCriminaliteit.Controls.Add(this.ratio);
+            this.TabCriminaliteit.Controls.Add(this.crimeIncrease);
+            this.TabCriminaliteit.Controls.Add(this.popIncrease);
             this.TabCriminaliteit.Controls.Add(this.chart1);
             this.TabCriminaliteit.Controls.Add(this.currentYear);
             this.TabCriminaliteit.Controls.Add(this.trackBar);
@@ -84,37 +88,26 @@ namespace Project3Datavisualisatie
             this.TabCriminaliteit.TabIndex = 0;
             this.TabCriminaliteit.Text = "Criminaliteit";
             this.TabCriminaliteit.UseVisualStyleBackColor = true;
-            this.TabCriminaliteit.Click += new System.EventHandler(this.tabPage1_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(403, 60);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // chart1
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(0, 6);
+            chartArea3.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart1.Legends.Add(legend3);
+            this.chart1.Location = new System.Drawing.Point(3, 6);
             this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Criminaliteit";
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(509, 437);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Criminaliteit";
+            this.chart1.Series.Add(series3);
+            this.chart1.Size = new System.Drawing.Size(509, 574);
             this.chart1.TabIndex = 1;
-            this.chart1.Text = "chart1";
-            this.chart1.Click += new System.EventHandler(this.chart1_Click);
+            this.chart1.Text = "v";
             // 
             // currentYear
             // 
-            this.currentYear.Location = new System.Drawing.Point(311, 449);
+            this.currentYear.Location = new System.Drawing.Point(290, 586);
             this.currentYear.Name = "currentYear";
             this.currentYear.Size = new System.Drawing.Size(50, 20);
             this.currentYear.TabIndex = 3;
@@ -122,13 +115,13 @@ namespace Project3Datavisualisatie
             // 
             // trackBar
             // 
-            this.trackBar.Location = new System.Drawing.Point(57, 449);
+            this.trackBar.Location = new System.Drawing.Point(10, 586);
             this.trackBar.Maximum = 2016;
-            this.trackBar.Minimum = 2005;
+            this.trackBar.Minimum = 2006;
             this.trackBar.Name = "trackBar";
             this.trackBar.Size = new System.Drawing.Size(239, 45);
             this.trackBar.TabIndex = 2;
-            this.trackBar.Value = 2005;
+            this.trackBar.Value = 2006;
             this.trackBar.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // TabEconomie
@@ -179,7 +172,7 @@ namespace Project3Datavisualisatie
             this.materialTabSelector1.Location = new System.Drawing.Point(-2, 24);
             this.materialTabSelector1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialTabSelector1.Name = "materialTabSelector1";
-            this.materialTabSelector1.Size = new System.Drawing.Size(1344, 31);
+            this.materialTabSelector1.Size = new System.Drawing.Size(1344, 40);
             this.materialTabSelector1.TabIndex = 1;
             this.materialTabSelector1.Text = "materialTabSelector1";
             // 
@@ -190,6 +183,60 @@ namespace Project3Datavisualisatie
             this.notifyIcon.Visible = true;
             this.notifyIcon.Click += new System.EventHandler(this.notifyIcon_Click);
             // 
+            // popIncrease
+            // 
+            this.popIncrease.AutoSize = true;
+            this.popIncrease.Depth = 0;
+            this.popIncrease.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.popIncrease.Location = new System.Drawing.Point(584, 19);
+            this.popIncrease.Margin = new System.Windows.Forms.Padding(0);
+            this.popIncrease.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.popIncrease.MouseState = MaterialSkin.MouseState.HOVER;
+            this.popIncrease.Name = "popIncrease";
+            this.popIncrease.Ripple = true;
+            this.popIncrease.Size = new System.Drawing.Size(143, 30);
+            this.popIncrease.TabIndex = 4;
+            this.popIncrease.TabStop = true;
+            this.popIncrease.Text = "population change";
+            this.popIncrease.UseVisualStyleBackColor = true;
+            this.popIncrease.CheckedChanged += new System.EventHandler(this.popIncrease_CheckedChanged);
+            // 
+            // crimeIncrease
+            // 
+            this.crimeIncrease.AutoSize = true;
+            this.crimeIncrease.Depth = 0;
+            this.crimeIncrease.Font = new System.Drawing.Font("Roboto", 10F);
+            this.crimeIncrease.Location = new System.Drawing.Point(584, 53);
+            this.crimeIncrease.Margin = new System.Windows.Forms.Padding(0);
+            this.crimeIncrease.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.crimeIncrease.MouseState = MaterialSkin.MouseState.HOVER;
+            this.crimeIncrease.Name = "crimeIncrease";
+            this.crimeIncrease.Ripple = true;
+            this.crimeIncrease.Size = new System.Drawing.Size(112, 30);
+            this.crimeIncrease.TabIndex = 5;
+            this.crimeIncrease.TabStop = true;
+            this.crimeIncrease.Text = "crime change";
+            this.crimeIncrease.UseVisualStyleBackColor = true;
+            this.crimeIncrease.CheckedChanged += new System.EventHandler(this.crimeIncrease_CheckedChanged);
+            // 
+            // ratio
+            // 
+            this.ratio.AutoSize = true;
+            this.ratio.Depth = 0;
+            this.ratio.Font = new System.Drawing.Font("Roboto", 10F);
+            this.ratio.Location = new System.Drawing.Point(584, 87);
+            this.ratio.Margin = new System.Windows.Forms.Padding(0);
+            this.ratio.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.ratio.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ratio.Name = "ratio";
+            this.ratio.Ripple = true;
+            this.ratio.Size = new System.Drawing.Size(124, 30);
+            this.ratio.TabIndex = 6;
+            this.ratio.TabStop = true;
+            this.ratio.Text = "pop/crime ratio";
+            this.ratio.UseVisualStyleBackColor = true;
+            this.ratio.CheckedChanged += new System.EventHandler(this.ratio_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,7 +245,6 @@ namespace Project3Datavisualisatie
             this.Controls.Add(this.materialTabSelector1);
             this.Controls.Add(this.materialTabControl1);
             this.Name = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load_1);
             this.materialTabControl1.ResumeLayout(false);
             this.TabCriminaliteit.ResumeLayout(false);
             this.TabCriminaliteit.PerformLayout();
@@ -233,12 +279,14 @@ namespace Project3Datavisualisatie
         private System.Windows.Forms.TabPage TabEnergie;
         private MaterialSkin.Controls.MaterialTabSelector materialTabSelector1;
         private NotifyIcon notifyIcon;
-        private Button button1;
         private Button button2;
         private Button button3;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private TrackBar trackBar;
         private TextBox currentYear;
+        private MaterialSkin.Controls.MaterialRadioButton ratio;
+        private MaterialSkin.Controls.MaterialRadioButton crimeIncrease;
+        private MaterialSkin.Controls.MaterialRadioButton popIncrease;
     }
 }
 
